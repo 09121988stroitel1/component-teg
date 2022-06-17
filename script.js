@@ -9,7 +9,7 @@ class TagsInput {
         this.renderList();
         this.renderCheckbox();
         this.renderComponent();
-        this.delitTeg ();
+        this.deleteTeg ();
         this. readOnly ()
     }
 
@@ -61,23 +61,23 @@ class TagsInput {
 
     tagsDraw () {
         const tegLi = document.createElement('li');
-        const delbtn = document.createElement('button');
-        delbtn.className = "button_delit";
-        tegLi.className = "new-teg";
-        delbtn.className = "button_delit";
-        delbtn.innerHTML = "&#10006";
+        const deleteButton = document.createElement('button');
         const tagsStr = localStorage.getItem('input');
-        // console.log(tagsStr[2]);
         const tags = JSON.parse(tagsStr);
-        console.log(tags[tags.length - 1]);
+        const arrLi = []
+        tegLi.className = "new-teg";
+        deleteButton.className = "button_delete";
+        deleteButton.innerHTML = "&#10006";
         tegLi.append(tags[tags.length - 1]);
-        tegLi.append(delbtn);
+        tegLi.append(deleteButton);
         console.log(tegLi)
         this.list.append(tegLi)
+        arrLi.push(tegLi)
+        console.log(arrLi)
     }
-    delitTeg () {
+    deleteTeg () {
         this.list.onclick = function(e) {
-          let btn = e.target.closest('.button_delit');
+          let btn = e.target.closest('.button_delete');
           if(!btn) {return}
           btn.parentElement.remove();
         }   
@@ -87,9 +87,9 @@ class TagsInput {
                  if(this.checkboxInput.checked) {
                     this.textInput.setAttribute("readOnly", "true");
                     this.buttonInput.disabled = true;
-                    // this.delbtn.setAttribute("disabled", "disabled");
-                    // this.buttonInput.setAttribute("disabled", "true"); 
-                
+                    this.btn.disabled = true;
+                    document.querySelector("button_delete").disabled = true; 
+                    document.querySelector('button_delete').setAttribute('disabled', 'disabled')             
                 } else {
                     this.textInput.removeAttribute("readOnly")
                     this.buttonInput.disabled = false;

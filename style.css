@@ -1,50 +1,58 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* .main {
-
-} */
-
 
 #component {
-    position: absolute;
-    display: flex;
-    border: red solid 2px;
-    width: 20%;
-    height: 40%;
-    left: 40%;
-    top: 40%;
-    flex-direction: column;
-    justify-content: space-around;
-   
+  position: absolute;
+  display: flex;
+  border: red solid 2px;
+  width: 20%;
+  height: 40%;
+  left: 40%;
+  top: 40%;
+  flex-direction: column;
+  justify-content: space-around; 
+}
 
-    
-}
 .text {
-    width: 70%;
-    border: red solid 2px;
+  width: 60%;
+  border: red solid 2px;
 }
+
 .button {
-    border: red solid 2px; 
+  border: red solid 2px; 
+  width: 25%;
 }
+
 .tags-area {
-    border: red solid 2px; 
-    height: 80%;
+  border: red solid 2px; 
+  height: 80%;
 }
-/* .new-teg::after */
-.button_delit {
-    width: 5%;
-    border: red solid 2px; 
-    content: "\2716";
+
+.button_delete {
+  width: 15%;
+  content: "\2716";
+  background-color: green;
+  border-radius: 10px;
+  list-style-type: none;
+  border: 0;
+  font-size: 20px;
 }
+
 .new-teg {
-    display: flex;
-    justify-content: space-between;
-    border: red solid 2px; 
-    list-style-type: none; /* Убираем маркеры */
+  display: flex;
+  justify-content: space-around;
+  border: red solid 2px; 
+  background-color: green;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(6, 236, 37, 0.451);
+  border-radius: 10px;
+  list-style-type: none;
+  font-size: 30px;
+  width: 40%;
+  margin-left: 30%;
+  padding-bottom: 2px; 
    }
 /* .checkbox {
     list-style-type: none;
