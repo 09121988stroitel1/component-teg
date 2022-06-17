@@ -9,6 +9,8 @@ class TagsInput {
         this.renderList();
         this.renderCheckbox();
         this.renderComponent();
+        this.delitTeg ();
+        this. readOnly ()
     }
 
     renderInput() {
@@ -29,8 +31,7 @@ class TagsInput {
     renderList() {
         this.list = document.createElement('ol')
         this.list.className = 'tags-area'
-        // 
-        // this.list.className = '#tags-area'
+       
     }
     renderCheckbox() {
         this.checkboxInput = document.createElement('input')
@@ -66,14 +67,34 @@ class TagsInput {
         delbtn.className = "button_delit";
         delbtn.innerHTML = "&#10006";
         const tagsStr = localStorage.getItem('input');
+        // console.log(tagsStr[2]);
         const tags = JSON.parse(tagsStr);
-        tegLi.append(tags);
+        console.log(tags[tags.length - 1]);
+        tegLi.append(tags[tags.length - 1]);
         tegLi.append(delbtn);
         console.log(tegLi)
         this.list.append(tegLi)
     }
-    readonly () {
-        
+    delitTeg () {
+        this.list.onclick = function(e) {
+          let btn = e.target.closest('.button_delit');
+          if(!btn) {return}
+          btn.parentElement.remove();
+        }   
+    }
+    readOnly () {
+        this.checkboxInput.addEventListener('change', () => {
+                 if(this.checkboxInput.checked) {
+                    this.textInput.setAttribute("readOnly", "true");
+                    this.buttonInput.disabled = true;
+                    // this.delbtn.setAttribute("disabled", "disabled");
+                    // this.buttonInput.setAttribute("disabled", "true"); 
+                
+                } else {
+                    this.textInput.removeAttribute("readOnly")
+                    this.buttonInput.disabled = false;
+                }
+         })
     }
 
 
