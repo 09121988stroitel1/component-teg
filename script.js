@@ -3,11 +3,13 @@ class TagsInput {
     buttonInput;
     list;
     checkboxInput;
+    textCheckbox;
     constructor() {
         this.renderInput();
         this.renderButton();
         this.renderList();
         this.renderCheckbox();
+        this.renderText();
         this.renderComponent();
         this.deleteTeg ();
         this. readOnly ()
@@ -38,11 +40,17 @@ class TagsInput {
         this.checkboxInput.type = 'checkbox'
         this.checkboxInput.className = 'checkbox'
     }
+    renderText() {
+        this.textCheckbox = document.createElement('p')
+        // this.textCheckbox.value = 'sdjheblesh'
+        this.textCheckbox.className = 'textCheckbox'
+    }
     renderComponent() {
         let div = document.getElementById('component')
         div.append(this.textInput)
         document.getElementById('component').append(this.buttonInput)
         document.getElementById('component').append(this.checkboxInput)
+        document.getElementById('component').append(this.textCheckbox)
         document.getElementById('component').append(this.list)
     }
 
@@ -85,14 +93,27 @@ class TagsInput {
     readOnly () {
         this.checkboxInput.addEventListener('change', () => {
                  if(this.checkboxInput.checked) {
-                    this.textInput.setAttribute("readOnly", "true");
+                    this.textInput.readOnly = true;
                     this.buttonInput.disabled = true;
-                    this.btn.disabled = true;
-                    document.querySelector("button_delete").disabled = true; 
-                    document.querySelector('button_delete').setAttribute('disabled', 'disabled')             
+                    if(this.list) {
+                        const buttons = this.list.getElementsByTagName("button")
+                        Array.from(buttons).forEach(elem => elem.disabled = true)
+                    }
+
+
+
+                    // this.textInput.setAttribute("readOnly", "true");
+                    // this.buttonInput.disabled = true;
+                    // this.btn.disabled = true;
+                    // document.querySelector("button_delete").disabled = true; 
+                    // document.querySelector('button_delete').setAttribute('disabled', 'disabled')             
                 } else {
-                    this.textInput.removeAttribute("readOnly")
+                    this.textInput.readOnly =false;
                     this.buttonInput.disabled = false;
+                    if(this.list) {
+                        const buttons = this.list.getElementsByTagName("button")
+                        Array.from(buttons).forEach(elem => elem.disabled = false)
+                    }
                 }
          })
     }

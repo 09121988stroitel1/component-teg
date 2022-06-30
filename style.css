@@ -10,6 +10,7 @@
   border: red solid 2px;
   width: 20%;
   height: 40%;
+  /* margin: 0 auto; */
   left: 40%;
   top: 40%;
   flex-direction: column;
@@ -17,21 +18,34 @@
 }
 
 .text {
-  width: 60%;
-  border: red solid 2px;
+  width: 100%;
 }
 
 .button {
   border: red solid 2px; 
-  width: 25%;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.textCheckbox {
+  /* position: absolute; */
+  width: 15%;
+  content: "dddddddddd";
+  background-color: green;
+  border-radius: 10px;
+  list-style-type: none;
+  border: 0;
+  font-size: 20px;
+  margin-left: 40px;
+  order: red solid 2px; 
 }
 
 .tags-area {
-  border: red solid 2px; 
   height: 80%;
 }
 
 .button_delete {
+  position: absolute;
   width: 15%;
   content: "\2716";
   background-color: green;
@@ -39,9 +53,11 @@
   list-style-type: none;
   border: 0;
   font-size: 20px;
+  margin-left: 250px;
 }
 
 .new-teg {
+  content: "";
   display: flex;
   justify-content: space-around;
   border: red solid 2px; 
@@ -50,10 +66,9 @@
   border-radius: 10px;
   list-style-type: none;
   font-size: 30px;
-  width: 40%;
-  margin-left: 30%;
+  /* width: 40%; */
+  margin: 0 auto;
+  /* margin-left: 30%; */
   padding-bottom: 2px; 
+ 
    }
-/* .checkbox {
-    list-style-type: none;
-} */
